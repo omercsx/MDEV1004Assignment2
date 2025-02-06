@@ -1,0 +1,19 @@
+{
+	"name": "mdev1004assignment2",
+	"version": "1.0.0",
+	"description": "MDEV 1004 - Assignment 2: Full CRUD with Auth using Express",
+	"license": "MIT",
+	"author": "Omer Cagri Sayir",
+	"type": "commonjs",
+	"main": "index.js",
+	"scripts": {
+		"start": "nodemon index.js"
+	},
+	"dependencies": {
+		"dotenv": "^16.4.7",
+		"express": "^4.21.2",
+		"mongo": "^0.1.0",
+		"mongoose": "^8.10.0",
+		"nodemon": "^3.1.9"
+	}
+}
