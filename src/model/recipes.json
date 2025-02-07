@@ -1,0 +1,372 @@
+{
+	"recipes": [
+		{
+			"recipeName": "Spaghetti Carbonara",
+			"ingredients": [
+				"spaghetti",
+				"eggs",
+				"pecorino romano cheese",
+				"guanciale",
+				"black pepper",
+				"salt"
+			],
+			"cookingTime": 25,
+			"difficulty": "Medium",
+			"cuisine": "Italian",
+			"description": "A classic Roman pasta dish made with eggs, hard cheese, cured pork, and black pepper. The sauce is created by combining raw eggs with cheese that are cooked by the heat of the freshly cooked pasta.",
+			"averageRating": 4.8
+		},
+		{
+			"recipeName": "Thai Green Curry",
+			"ingredients": [
+				"coconut milk",
+				"green curry paste",
+				"chicken breast",
+				"bamboo shoots",
+				"thai basil",
+				"fish sauce",
+				"palm sugar",
+				"eggplant",
+				"kaffir lime leaves"
+			],
+			"cookingTime": 40,
+			"difficulty": "Medium",
+			"cuisine": "Thai",
+			"description": "A fragrant and creamy curry made with coconut milk and green curry paste, featuring tender chicken and fresh vegetables.",
+			"averageRating": 4.6
+		},
+		{
+			"recipeName": "Classic French Onion Soup",
+			"ingredients": [
+				"onions",
+				"beef broth",
+				"butter",
+				"flour",
+				"baguette",
+				"gruyere cheese",
+				"thyme",
+				"bay leaves",
+				"white wine"
+			],
+			"cookingTime": 90,
+			"difficulty": "Medium",
+			"cuisine": "French",
+			"description": "A rich and comforting soup made with caramelized onions, beef broth, and topped with crusty bread and melted cheese.",
+			"averageRating": 4.7
+		},
+		{
+			"recipeName": "Chicken Tikka Masala",
+			"ingredients": [
+				"chicken thighs",
+				"yogurt",
+				"tomato sauce",
+				"heavy cream",
+				"garam masala",
+				"turmeric",
+				"ginger",
+				"garlic",
+				"onion",
+				"butter"
+			],
+			"cookingTime": 60,
+			"difficulty": "Medium",
+			"cuisine": "Indian",
+			"description": "Tender chicken pieces in a rich, creamy tomato-based curry sauce, a beloved Indian-British dish.",
+			"averageRating": 4.9
+		},
+		{
+			"recipeName": "Simple Avocado Toast",
+			"ingredients": [
+				"sourdough bread",
+				"ripe avocado",
+				"salt",
+				"pepper",
+				"red pepper flakes",
+				"olive oil",
+				"lemon juice"
+			],
+			"cookingTime": 10,
+			"difficulty": "Easy",
+			"cuisine": "Modern American",
+			"description": "A quick and nutritious breakfast featuring mashed avocado on toasted sourdough bread with simple seasonings.",
+			"averageRating": 4.3
+		},
+		{
+			"recipeName": "Beef Wellington",
+			"ingredients": [
+				"beef tenderloin",
+				"mushrooms",
+				"prosciutto",
+				"puff pastry",
+				"egg wash",
+				"dijon mustard",
+				"thyme",
+				"shallots"
+			],
+			"cookingTime": 120,
+			"difficulty": "Hard",
+			"cuisine": "British",
+			"description": "A luxurious dish of beef tenderloin wrapped in mushroom duxelles, prosciutto, and puff pastry, then baked to perfection.",
+			"averageRating": 4.9
+		},
+		{
+			"recipeName": "Miso Soup",
+			"ingredients": [
+				"dashi stock",
+				"miso paste",
+				"tofu",
+				"wakame seaweed",
+				"green onions"
+			],
+			"cookingTime": 15,
+			"difficulty": "Easy",
+			"cuisine": "Japanese",
+			"description": "A traditional Japanese soup made with fermented soybean paste, dashi stock, and various additions like tofu and seaweed.",
+			"averageRating": 4.4
+		},
+		{
+			"recipeName": "Greek Moussaka",
+			"ingredients": [
+				"eggplant",
+				"ground lamb",
+				"potatoes",
+				"bechamel sauce",
+				"tomatoes",
+				"onion",
+				"garlic",
+				"cinnamon",
+				"nutmeg",
+				"parmesan cheese"
+			],
+			"cookingTime": 90,
+			"difficulty": "Hard",
+			"cuisine": "Greek",
+			"description": "A hearty layered dish of eggplant, spiced ground lamb, and potatoes, topped with creamy bechamel sauce.",
+			"averageRating": 4.7
+		},
+		{
+			"recipeName": "Vietnamese Pho",
+			"ingredients": [
+				"rice noodles",
+				"beef bones",
+				"beef slices",
+				"bean sprouts",
+				"thai basil",
+				"lime",
+				"hoisin sauce",
+				"sriracha",
+				"star anise",
+				"cinnamon stick",
+				"ginger"
+			],
+			"cookingTime": 360,
+			"difficulty": "Hard",
+			"cuisine": "Vietnamese",
+			"description": "A fragrant Vietnamese noodle soup with a rich beef broth, rice noodles, and various herbs and condiments.",
+			"averageRating": 4.8
+		},
+		{
+			"recipeName": "Classic Caesar Salad",
+			"ingredients": [
+				"romaine lettuce",
+				"parmesan cheese",
+				"croutons",
+				"eggs",
+				"garlic",
+				"anchovies",
+				"dijon mustard",
+				"olive oil",
+				"lemon juice"
+			],
+			"cookingTime": 20,
+			"difficulty": "Easy",
+			"cuisine": "American",
+			"description": "A classic salad featuring crisp romaine lettuce, homemade caesar dressing, crunchy croutons, and parmesan cheese.",
+			"averageRating": 4.5
+		},
+		{
+			"recipeName": "Paella Valenciana",
+			"ingredients": [
+				"bomba rice",
+				"chicken",
+				"rabbit",
+				"green beans",
+				"butter beans",
+				"saffron",
+				"paprika",
+				"rosemary",
+				"olive oil",
+				"chicken stock"
+			],
+			"cookingTime": 75,
+			"difficulty": "Hard",
+			"cuisine": "Spanish",
+			"description": "Traditional Spanish rice dish cooked in a large, shallow pan with meat, vegetables, and aromatic spices.",
+			"averageRating": 4.6
+		},
+		{
+			"recipeName": "Homemade Pizza Margherita",
+			"ingredients": [
+				"pizza dough",
+				"san marzano tomatoes",
+				"fresh mozzarella",
+				"basil",
+				"olive oil",
+				"salt"
+			],
+			"cookingTime": 30,
+			"difficulty": "Medium",
+			"cuisine": "Italian",
+			"description": "A classic Neapolitan pizza topped with tomatoes, fresh mozzarella, basil, and olive oil.",
+			"averageRating": 4.7
+		},
+		{
+			"recipeName": "Beef Bulgogi",
+			"ingredients": [
+				"thinly sliced beef",
+				"soy sauce",
+				"sesame oil",
+				"brown sugar",
+				"garlic",
+				"ginger",
+				"pear",
+				"green onions",
+				"sesame seeds"
+			],
+			"cookingTime": 45,
+			"difficulty": "Medium",
+			"cuisine": "Korean",
+			"description": "Korean marinated beef that's tender and flavorful, traditionally grilled but can also be pan-fried.",
+			"averageRating": 4.8
+		},
+		{
+			"recipeName": "Mushroom Risotto",
+			"ingredients": [
+				"arborio rice",
+				"mixed mushrooms",
+				"white wine",
+				"vegetable stock",
+				"parmesan cheese",
+				"butter",
+				"onion",
+				"garlic",
+				"thyme"
+			],
+			"cookingTime": 45,
+			"difficulty": "Medium",
+			"cuisine": "Italian",
+			"description": "Creamy Italian rice dish made with mushrooms, white wine, and parmesan cheese, slowly cooked to perfection.",
+			"averageRating": 4.6
+		},
+		{
+			"recipeName": "Fish and Chips",
+			"ingredients": [
+				"cod fillets",
+				"potatoes",
+				"flour",
+				"beer",
+				"baking powder",
+				"vegetable oil",
+				"malt vinegar",
+				"tartar sauce"
+			],
+			"cookingTime": 45,
+			"difficulty": "Medium",
+			"cuisine": "British",
+			"description": "Classic British dish of battered and fried fish served with thick-cut fried potatoes.",
+			"averageRating": 4.5
+		},
+		{
+			"recipeName": "Chocolate Soufflé",
+			"ingredients": [
+				"dark chocolate",
+				"butter",
+				"eggs",
+				"sugar",
+				"vanilla extract",
+				"flour",
+				"salt"
+			],
+			"cookingTime": 30,
+			"difficulty": "Hard",
+			"cuisine": "French",
+			"description": "Light and airy chocolate dessert that rises dramatically and must be served immediately.",
+			"averageRating": 4.7
+		},
+		{
+			"recipeName": "Pad Thai",
+			"ingredients": [
+				"rice noodles",
+				"shrimp",
+				"tofu",
+				"eggs",
+				"bean sprouts",
+				"peanuts",
+				"tamarind paste",
+				"fish sauce",
+				"palm sugar",
+				"chili flakes"
+			],
+			"cookingTime": 30,
+			"difficulty": "Medium",
+			"cuisine": "Thai",
+			"description": "Popular Thai stir-fried rice noodle dish with a perfect balance of sweet, sour, and savory flavors.",
+			"averageRating": 4.6
+		},
+		{
+			"recipeName": "Gazpacho",
+			"ingredients": [
+				"tomatoes",
+				"cucumber",
+				"red pepper",
+				"garlic",
+				"olive oil",
+				"sherry vinegar",
+				"bread",
+				"salt"
+			],
+			"cookingTime": 20,
+			"difficulty": "Easy",
+			"cuisine": "Spanish",
+			"description": "Refreshing cold soup made with raw vegetables, perfect for hot summer days.",
+			"averageRating": 4.3
+		},
+		{
+			"recipeName": "Beef Stroganoff",
+			"ingredients": [
+				"beef tenderloin",
+				"mushrooms",
+				"sour cream",
+				"egg noodles",
+				"onion",
+				"garlic",
+				"beef broth",
+				"mustard",
+				"butter"
+			],
+			"cookingTime": 45,
+			"difficulty": "Medium",
+			"cuisine": "Russian",
+			"description": "Tender strips of beef and mushrooms in a rich sour cream sauce, served over egg noodles.",
+			"averageRating": 4.5
+		},
+		{
+			"recipeName": "Apple Pie",
+			"ingredients": [
+				"pie crust",
+				"apples",
+				"sugar",
+				"cinnamon",
+				"nutmeg",
+				"lemon juice",
+				"butter",
+				"egg wash"
+			],
+			"cookingTime": 75,
+			"difficulty": "Medium",
+			"cuisine": "American",
+			"description": "Classic American dessert with a flaky crust filled with spiced apples, best served warm with vanilla ice cream.",
+			"averageRating": 4.8
+		}
+	]
+}
