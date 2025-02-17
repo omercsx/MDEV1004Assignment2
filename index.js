@@ -11,9 +11,16 @@ dotenv.config();
 const app = express();
 const port = process.env.PORT || 3001;
 
+// Import routes
+const recipeRoutes = require('./src/routes/recipeRoutes');
+
 app.use(express.json());
 
+// Connect to database
 connectDB();
+
+// Use routes
+app.use('/api/recipes', recipeRoutes);
 
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
