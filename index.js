@@ -13,6 +13,7 @@ const port = process.env.PORT || 3001;
 
 // Import routes
 const recipeRoutes = require('./src/routes/recipeRoutes');
+const authRoutes = require('./src/routes/authRoutes');
 
 app.use(express.json());
 
@@ -21,6 +22,7 @@ connectDB();
 
 // Use routes
 app.use('/api/recipes', recipeRoutes);
+app.use('/api/auth', authRoutes);
 
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
