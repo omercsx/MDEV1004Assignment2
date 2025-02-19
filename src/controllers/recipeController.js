@@ -15,11 +15,13 @@ const recipeController = {
       if (recipes.length === 0) {
         const filePath = path.join(__dirname, '../model/recipes.json');
         const recipesData = JSON.parse(fs.readFileSync(filePath, 'utf8'));
-        await Recipe.insertMany(recipesData);
+        // Extract the recipes array from the JSON structure
+        const recipesToInsert = recipesData.recipes;
+        await Recipe.insertMany(recipesToInsert);
         return res.json({
           success: true,
-          count: recipesData.length,
-          data: recipesData
+          count: recipesToInsert.length,
+          data: recipesToInsert
         });
       }
       res.json({
