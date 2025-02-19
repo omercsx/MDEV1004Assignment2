@@ -4,12 +4,24 @@
  */
 
 const Recipe = require("../model/Recipe");
+const fs = require('fs');
+const path = require('path');
 
 const recipeController = {
   // Get all recipes
   getAllRecipes: async (req, res) => {
     try {
       const recipes = await Recipe.find({}).sort({ createdAt: -1 });
+      if (recipes.length === 0) {
+        const filePath = path.join(__dirname, '../model/recipes.json');
+        const recipesData = JSON.parse(fs.readFileSync(filePath, 'utf8'));
+        await Recipe.insertMany(recipesData);
+        return res.json({
+          success: true,
+          count: recipesData.length,
+          data: recipesData
+        });
+      }
       res.json({
         success: true,
         count: recipes.length,
