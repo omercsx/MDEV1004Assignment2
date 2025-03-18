@@ -238,6 +238,7 @@ async function deleteRecipe(id) {
 // Auth Functions
 async function login(email, password) {
   try {
+    console.log('Attempting to login user:', { email });
     const response = await fetch(`${API_URL}/auth/login`, {
       method: 'POST',
       headers: {
@@ -245,10 +246,15 @@ async function login(email, password) {
       },
       body: JSON.stringify({ email, password })
     });
-    if (!response.ok) {
-      throw new Error('Login failed');
-    }
+
     const data = await response.json();
+
+    if (!response.ok) {
+      console.error('Login failed:', data);
+      throw new Error(data.message || 'Login failed');
+    }
+
+    console.log('Login successful:', data);
     return data;
   } catch (error) {
     console.error('Error logging in:', error);
@@ -258,6 +264,7 @@ async function login(email, password) {
 
 async function register(name, email, password) {
   try {
+    console.log('Attempting to register user:', { name, email });
     const response = await fetch(`${API_URL}/auth/register`, {
       method: 'POST',
       headers: {
@@ -265,10 +272,15 @@ async function register(name, email, password) {
       },
       body: JSON.stringify({ name, email, password })
     });
-    if (!response.ok) {
-      throw new Error('Registration failed');
-    }
+
     const data = await response.json();
+
+    if (!response.ok) {
+      console.error('Registration failed:', data);
+      throw new Error(data.message || 'Registration failed');
+    }
+
+    console.log('Registration successful:', data);
     return data;
   } catch (error) {
     console.error('Error registering:', error);
@@ -511,14 +523,17 @@ loginForm.addEventListener('submit', async (e) => {
   const password = document.getElementById('login-password').value;
 
   const result = await login(email, password);
-  if (result && result.user) {
-    currentUser = result.user;
+  if (result && result.success) {
+    currentUser = result.data;
     updateAuthUI();
     showSection(homeSection);
     homeLink.classList.add('active');
     loginForm.reset();
   } else {
-    alert('Login failed. Please check your credentials.');
+    const errorMessage = result && result.message
+      ? result.message
+      : 'Login failed. Please check your credentials.';
+    alert(errorMessage);
   }
 });
 
@@ -536,13 +551,16 @@ registerForm.addEventListener('submit', async (e) => {
   }
 
   const result = await register(name, email, password);
-  if (result && result.user) {
+  if (result && result.success) {
     alert('Registration successful! Please log in.');
     showSection(loginSection);
     loginLink.classList.add('active');
     registerForm.reset();
   } else {
-    alert('Registration failed. Please try again.');
+    const errorMessage = result && result.message
+      ? result.message
+      : 'Registration failed. Please try again.';
+    alert(errorMessage);
   }
 });
 

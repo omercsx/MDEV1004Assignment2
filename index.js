@@ -6,6 +6,7 @@
 const express = require("express");
 const dotenv = require("dotenv");
 const connectDB = require("./src/config/database");
+const cors = require("cors");
 dotenv.config();
 
 const app = express();
@@ -15,6 +16,8 @@ const port = process.env.PORT || 3001;
 const recipeRoutes = require('./src/routes/recipeRoutes');
 const authRoutes = require('./src/routes/authRoutes');
 
+// Enable CORS for all requests
+app.use(cors());
 app.use(express.json());
 
 // Connect to database
