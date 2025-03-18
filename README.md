@@ -1,5 +1,7 @@
 # EXPRESS API - Full CRUD with Auth
 
+## This is Assignment 2 and Assignment 3
+
 Group Members:
 
 - Omer Cagri Sayir
