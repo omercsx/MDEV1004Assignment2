@@ -25,7 +25,7 @@ const filterDifficulty = document.getElementById('filter-difficulty');
 const filterCuisine = document.getElementById('filter-cuisine');
 
 // API Base URL
-const API_URL = 'http://localhost:3001/api';
+const API_URL = 'http://localhost:3000/api';
 
 // State
 let currentUser = null;
@@ -154,12 +154,24 @@ window.addEventListener('click', (e) => {
 // API Functions
 async function fetchRecipes() {
   try {
+    console.log('Fetching all recipes...');
     const response = await fetch(`${API_URL}/recipes`);
+
     if (!response.ok) {
-      throw new Error('Failed to fetch recipes');
+      console.error('Failed to fetch recipes:', response.status, response.statusText);
+      throw new Error(`Failed to fetch recipes: ${response.status} ${response.statusText}`);
     }
-    const data = await response.json();
-    return data;
+
+    const result = await response.json();
+    console.log('API response:', result);
+
+    if (result.success && result.data) {
+      console.log('Recipes fetched successfully:', result.data.length);
+      return result.data;
+    } else {
+      console.warn('API returned success:false or no data');
+      return [];
+    }
   } catch (error) {
     console.error('Error fetching recipes:', error);
     return [];
@@ -168,12 +180,23 @@ async function fetchRecipes() {
 
 async function fetchRecipeById(id) {
   try {
+    console.log(`Fetching recipe with ID: ${id}`);
     const response = await fetch(`${API_URL}/recipes/${id}`);
+
     if (!response.ok) {
-      throw new Error('Failed to fetch recipe');
+      console.error(`Failed to fetch recipe ${id}:`, response.status, response.statusText);
+      throw new Error(`Failed to fetch recipe: ${response.status} ${response.statusText}`);
     }
-    const data = await response.json();
-    return data;
+
+    const result = await response.json();
+    console.log('API response for single recipe:', result);
+
+    if (result.success && result.data) {
+      return result.data;
+    } else {
+      console.warn('API returned success:false or no data for recipe');
+      return null;
+    }
   } catch (error) {
     console.error('Error fetching recipe:', error);
     return null;
@@ -182,6 +205,7 @@ async function fetchRecipeById(id) {
 
 async function createRecipe(recipeData) {
   try {
+    console.log('Creating new recipe:', recipeData);
     const response = await fetch(`${API_URL}/recipes`, {
       method: 'POST',
       headers: {
@@ -189,11 +213,21 @@ async function createRecipe(recipeData) {
       },
       body: JSON.stringify(recipeData)
     });
+
+    const result = await response.json();
+    console.log('Create recipe API response:', result);
+
     if (!response.ok) {
-      throw new Error('Failed to create recipe');
+      console.error('Failed to create recipe:', result);
+      throw new Error(result.message || 'Failed to create recipe');
     }
-    const data = await response.json();
-    return data;
+
+    if (result.success && result.data) {
+      return result.data;
+    } else {
+      console.warn('API returned success:false or no data for create recipe');
+      return null;
+    }
   } catch (error) {
     console.error('Error creating recipe:', error);
     return null;
@@ -202,6 +236,7 @@ async function createRecipe(recipeData) {
 
 async function updateRecipe(id, recipeData) {
   try {
+    console.log(`Updating recipe ${id}:`, recipeData);
     const response = await fetch(`${API_URL}/recipes/${id}`, {
       method: 'PUT',
       headers: {
@@ -209,11 +244,21 @@ async function updateRecipe(id, recipeData) {
       },
       body: JSON.stringify(recipeData)
     });
+
+    const result = await response.json();
+    console.log('Update recipe API response:', result);
+
     if (!response.ok) {
-      throw new Error('Failed to update recipe');
+      console.error('Failed to update recipe:', result);
+      throw new Error(result.message || 'Failed to update recipe');
     }
-    const data = await response.json();
-    return data;
+
+    if (result.success && result.data) {
+      return result.data;
+    } else {
+      console.warn('API returned success:false or no data for update recipe');
+      return null;
+    }
   } catch (error) {
     console.error('Error updating recipe:', error);
     return null;
@@ -222,13 +267,20 @@ async function updateRecipe(id, recipeData) {
 
 async function deleteRecipe(id) {
   try {
+    console.log(`Deleting recipe ${id}`);
     const response = await fetch(`${API_URL}/recipes/${id}`, {
       method: 'DELETE'
     });
+
+    const result = await response.json();
+    console.log('Delete recipe API response:', result);
+
     if (!response.ok) {
-      throw new Error('Failed to delete recipe');
+      console.error('Failed to delete recipe:', result);
+      throw new Error(result.message || 'Failed to delete recipe');
     }
-    return true;
+
+    return result.success;
   } catch (error) {
     console.error('Error deleting recipe:', error);
     return false;
@@ -324,24 +376,35 @@ function createRecipeCard(recipe) {
 }
 
 async function loadFeaturedRecipes() {
+  console.log('Loading featured recipes...');
   const allRecipes = await fetchRecipes();
+  console.log('Number of recipes received:', allRecipes.length);
+
   if (allRecipes.length > 0) {
     // Get 3 random recipes for featured section
     const featuredRecipes = allRecipes.sort(() => 0.5 - Math.random()).slice(0, 3);
+    console.log('Selected featured recipes:', featuredRecipes);
 
     featuredRecipesContainer.innerHTML = '';
     featuredRecipes.forEach(recipe => {
       featuredRecipesContainer.appendChild(createRecipeCard(recipe));
     });
+  } else {
+    console.warn('No recipes available for featured section');
+    featuredRecipesContainer.innerHTML = '<p class="no-recipes">No featured recipes available.</p>';
   }
 }
 
 async function loadAllRecipes() {
+  console.log('Loading all recipes...');
   recipes = await fetchRecipes();
   filteredRecipes = [...recipes];
+  console.log('All recipes loaded:', recipes.length);
 
   // Populate cuisine filter
   const cuisines = [...new Set(recipes.map(recipe => recipe.cuisine))];
+  console.log('Available cuisines:', cuisines);
+
   filterCuisine.innerHTML = '<option value="">All Cuisines</option>';
   cuisines.forEach(cuisine => {
     const option = document.createElement('option');

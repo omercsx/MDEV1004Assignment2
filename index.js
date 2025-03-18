@@ -17,7 +17,11 @@ const recipeRoutes = require('./src/routes/recipeRoutes');
 const authRoutes = require('./src/routes/authRoutes');
 
 // Enable CORS for all requests
-app.use(cors());
+app.use(cors({
+  origin: '*', // Allow all origins
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  allowedHeaders: ['Content-Type', 'Authorization']
+}));
 app.use(express.json());
 
 // Connect to database
@@ -29,4 +33,5 @@ app.use('/api/auth', authRoutes);
 
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
+  console.log(`API accessible at http://localhost:${port}/api`);
 });
